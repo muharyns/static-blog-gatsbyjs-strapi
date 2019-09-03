@@ -1,0 +1,36 @@
+{
+  "connection": "default",
+  "collectionName": "programs",
+  "info": {
+    "name": "program",
+    "description": "Program article"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "minLength": 10,
+      "required": true,
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "author": {
+      "model": "user",
+      "via": "programs",
+      "plugin": "users-permissions"
+    }
+  }
+}
